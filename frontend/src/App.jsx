@@ -9,7 +9,11 @@ function App() {
       .then(data => setMsg(data.message));
   }, []);
 
-  return <h1>{msg}</h1>;
+  return <>
+  <h1 className="title">{msg}</h1>
+  <h5 className="footer">Deployed with Docker and Oracle Cloud Infrastructure</h5>
+  
+  </>;
 }
 
 export default App;
