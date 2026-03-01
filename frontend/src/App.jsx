@@ -10,6 +10,8 @@ function App() {
   }, []);
 
   return <>
+
+  <div> <h1 style="color: green; font-size: 1.2em;">Timiksha is studying hard for her annual examination</h1></div>
   <h1 className="title">{msg}</h1>
   <h5 className="footer">Deployed with Docker and Oracle Cloud Infrastructure</h5>
   
