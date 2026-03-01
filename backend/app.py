@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get("/hello")
 def hello():
-    return {"message": "Backend working from Oracle Cloud"}
+    return {"message": "Deploying FastAPI with Docker and Oracle Cloud Infrastructure!"}
