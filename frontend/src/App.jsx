@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Home from "./pages/Home";
 import Architecture from "./pages/Architecture";
+import Oracle from "./pages/Oracle";
 import Backend from "./pages/Backend";
 import Frontend from "./pages/Frontend";
 import DevOps from "./pages/DevOps";
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/architecture" element={<Architecture />} />
+            <Route path="/oracle" element={<Oracle />} />
             <Route path="/backend" element={<Backend />} />
             <Route path="/frontend" element={<Frontend />} />
             <Route path="/devops" element={<DevOps />} />
