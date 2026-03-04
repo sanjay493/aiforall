@@ -1,0 +1,82 @@
+Instance creation
+
+
+Oracle Firewall setup
+
+ Instances-> Security->Security list (click the created security list as "Default Security List for openvpn-905" in my case) ->Security Rules (Ingress and Egress)
+
+ make changes as image oracle-8 and oracle-9
+
+Also Open Network Security Group
+
+
+Instances-> Security->Network Security Groups (click the created list as "ig-quick-action-NSG" in my case)
+
+ make changes as image oracle-10
+
+
+
+SSH key 
+
+generate SSH key pair on your local PC 
+
+
+ls ~/.ssh   
+You should see something like:
+
+id_rsa   //private key
+id_rsa.pub   //public key
+
+
+File	Used Where
+id_rsa.pub	goes INTO server
+id_rsa	goes INTO GitHub secret
+
+
+Open private key:
+
+cat ~/.ssh/id_rsa
+
+It MUST look like:
+
+-----BEGIN OPENSSH PRIVATE KEY-----
+...
+-----END OPENSSH PRIVATE KEY-----
+
+or
+
+-----BEGIN RSA PRIVATE KEY-----
+...
+-----END RSA PRIVATE KEY-----
+
+
+Add Public Key to Oracle VM
+login using SSH
+
+on oracle VN terminal
+mkdir -p ~/.ssh
+nano ~/.ssh/authorized_keys
+
+Paste contents of:
+
+~/.ssh/id_rsa.pub
+
+Save and fix permissions:
+
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+
+
+Put PRIVATE Key in GitHub Secret
+
+Go to:
+
+Repo → Settings → Secrets → Actions → SSH_KEY
+
+Delete old value.
+
+Paste FULL private key, including:
+
+-----BEGIN OPENSSH PRIVATE KEY-----
+...
+-----END OPENSSH PRIVATE KEY-----
