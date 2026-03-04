@@ -11,6 +11,7 @@ export default function Navbar() {
           <Link to="/">Home</Link>
           <Link to="/architecture">Architecture</Link>
           <Link to="/oracle">Oracle Cloud</Link>
+          <Link to="/free-domain">Free Domain</Link>
           <Link to="/backend">Backend</Link>
           <Link to="/frontend">Frontend</Link>
           <Link to="/devops">DevOps</Link>
