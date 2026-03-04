@@ -7,6 +7,7 @@ import Backend from "./pages/Backend";
 import Frontend from "./pages/Frontend";
 import DevOps from "./pages/DevOps";
 import Admin from "./pages/Admin";
+import FreeDomain from "./pages/FreeDomain";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/architecture" element={<Architecture />} />
             <Route path="/oracle" element={<Oracle />} />
+              <Route path="/free-domain" element={<FreeDomain />} />
             <Route path="/backend" element={<Backend />} />
             <Route path="/frontend" element={<Frontend />} />
             <Route path="/devops" element={<DevOps />} />
