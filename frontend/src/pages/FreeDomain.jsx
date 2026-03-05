@@ -1,13 +1,6 @@
 import CodeBlock from "../components/CodeBlock";
-import oracle1 from "../assets/image/oracle/oracle-1.png";
-import oracle2 from "../assets/image/oracle/oracle-2.png";
-import oracle3 from "../assets/image/oracle/oracle-3.png";
-import oracle4 from "../assets/image/oracle/oracle-4.png";
-import oracle5 from "../assets/image/oracle/oracle-5.png";
-import oracle6 from "../assets/image/oracle/oracle-6.png";
-import oracle8 from "../assets/image/oracle/oracle-8.png";
-import oracle9 from "../assets/image/oracle/oracle-9.png";
-import oracle10 from "../assets/image/oracle/oracle-10.png";
+
+import duckdns from "../assets/image/freedomain/duckdns.png";
 
 export default function FreeDomain() {
     return (
@@ -23,12 +16,22 @@ export default function FreeDomain() {
 				<h3 className="text-xl font-semibold mb-4">Step 1: Go to: <a href="https://www.duckdns.org/" className="text-blue-400 hover:underline">DuckDNS</a></h3>
 				<p className=" mb-4">Login using Google/Github. After login you will be redirected to your dashboard where you can create a new domain.</p>
 				<p className=" mb-4">Enter your desired subdomain name in the "Subdomains" field and click the "add domain" button.</p>
+
 				<p className=" mb-4"> Add Oracle IP <address>your_oracle_ip</address>,("yourdomain.duckdns.org") as you will need it to point to your Oracle Cloud VM instance.</p>
-			   <p className=" mb-4"> On your Oracle VM run the terminal command <code className="bg-gray-200 p-1 rounded">nano ~/duckdns.sh</code> and add the following content to the file:</p>
+			   <img src={duckdns} alt="DuckDNS Dashboard" className="my-4 rounded-lg shadow" />
+			   
+			   <p className=" mb-4"> On your Oracle VM run the terminal command.	</p>
+			   
+			   <CodeBlock code={`nano ~/duckdns.sh`} language="bash" />
+			   <p className=" mb-4">This will open a new file in the nano text editor. Add the following line to the file:</p>
 			   <CodeBlock code={`echo url="https://www.duckdns.org/update?domains=yourdomain&token=your_token&ip=" | curl -k -o ~/duckdns/duck.log -K -`} language="bash" />
 			   <p className=" mb-4">Replace "yourdomain" with your actual subdomain and "your_token" with the token provided in your DuckDNS dashboard.</p>
-			   <p className=" mb-4">Make the script executable by running the command: <code className="bg-gray-200 p-1 rounded">chmod +x ~/duckdns.sh</code></p>
-			   <p className=" mb-4">To automate the update process, you can set up a cron job. Run the command: <code className="bg-gray-200 p-1 rounded">crontab -e</code> and add the following line to run the script every 5 minutes:</p>
+			   <p className=" mb-4">Make the script executable by running the command: </p>
+				
+				<CodeBlock code={`chmod +x ~/duckdns.sh`} language="bash" />
+			   <p className=" mb-4">To automate the update process, you can set up a cron job. Run the command: </p>
+				<CodeBlock code={`crontab -e`} language="bash" />
+				<p className=" mb-4">Add the following line to run the script every 5 minutes:</p>
 			   <CodeBlock code={`*/5 * * * * ~/duckdns.sh`} language="bash" />
 			   <p className=" mb-4">Save the file and exit the editor. Your Oracle Cloud VM instance will now automatically update your DuckDNS domain with its current IP address every 5 minutes.</p>
 			
